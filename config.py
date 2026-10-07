@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
+PROXY_HOST = os.getenv('PROXY_HOST')
+PROXY_PORT = os.getenv('PROXY_PORT')
 
 GESTURE_CLASSES = {
     0: "A", 1: "B", 2: "C", 3: "D", 4: "E",
@@ -14,3 +16,5 @@ GESTURE_CLASSES = {
     20: "U", 21: "V", 22: "W", 23: "X", 24: "Y",
     25: "Z", 26: "del", 27: "nothing", 28: "space"
 }
+
+PROXY_URL = f"socks5://{PROXY_HOST}:{PROXY_PORT}"

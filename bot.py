@@ -2,14 +2,17 @@ import asyncio
 import logging
 
 from aiogram import Bot, Dispatcher, F
+from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.filters import Command
 from aiogram.types import KeyboardButton, Message, ReplyKeyboardMarkup
 
 import config
 from neural_network import classifier
 
+session = AiohttpSession(proxy=config.PROXY_URL)
+
 logging.basicConfig(level=logging.INFO)
-bot = Bot(token=config.BOT_TOKEN)
+bot = Bot(token=config.BOT_TOKEN, session=session)
 dp = Dispatcher()
 
 start_keyboard = ReplyKeyboardMarkup(
